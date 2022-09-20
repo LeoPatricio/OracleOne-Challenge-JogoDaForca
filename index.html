@@ -15,16 +15,17 @@
 		<main class="main">	
 		<section class="secBtn">
 			<div class="buttons">
-				<input class="btnPlay" type="submit" value="Iniciar jogo">
-				<input class="btnAddWords" type="submit" value="Adicionar palavras">
+				<input class="btnPlay" type="submit" value="Iniciar jogo" onclick="start()">
+				<input class="btnAddWords" type="submit" value="Adicionar palavras" onclick="addNewWords()">
 			</div>
 		</section>
 
-		<section>
-			<div class="spawnForca">
-				<canvas class="forca" height="860px" width="1200px"></canvas>
+		<section class="spawnGame">
+			<div class="game">
+				<canvas class="forca"></canvas>
 			</div>
 		</section>
 	</main>
+	<script src="script.js"></script>
 </body>
 </html>

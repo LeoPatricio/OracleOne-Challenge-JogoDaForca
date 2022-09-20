@@ -9,7 +9,7 @@
 }
 
 .main{
-    position: relative;
+    position: flex;
     width: 100%;
     height: 100%;  
 }
@@ -27,6 +27,7 @@
     padding:15px 31px;
 	display:block;
 	cursor:pointer;
+    border: none;
     
 	color:#FFFFFF;
 	font-family:Arial;
@@ -51,6 +52,7 @@
     padding:15px 31px;
 	display:block;
 	cursor:pointer;
+    border: none;
 
 	color:#FFFFFF;
 	font-family:Arial;
@@ -76,7 +78,13 @@
     height: 100%;
 }
 
-.forca{
+.game{
+    width: 100%;
+    height: 100%;
     display: none;
-    background-color: black;
+    background-color: #E9ECF8;
+}
+
+.forca{
+    background: #E9ECF8;
 }
