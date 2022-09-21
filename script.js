@@ -2,11 +2,24 @@
 const secBtn = document.querySelector(".buttons");
 const game = document.querySelector(".game");
 const addWords = document.querySelector(".btnAddWords");
-let word = ["PROGRAMACAO", "CODAR", "ALURA", "ONE", "ORACLE", "JAVASCRIPT", "PALAVRA", "FORCA", "CHALLENGE", "JOGO"];
+let gameArea = document.querySelector(".forca").getContext("2d");
+let words = ["PROGRAMACAO", "CODAR", "ALURA", "ONE", "ORACLE", "JAVASCRIPT", "PALAVRA", "FORCA", "CHALLENGE", "JOGO"];
+let wordSelected  = "";
 
 //Functions
+
+function randomWord(){
+  let word =  words[Math.floor(Math.random() * words.length)];
+  wordSelected = word;
+  console.log(wordSelected);
+}
+
 function start(){
+  randomWord();
+  drawGame();
+  drawLines();
   switchDiv();
+
 }
 
 function addNewWords(){
