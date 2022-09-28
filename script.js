@@ -6,8 +6,12 @@ let gameArea = document.querySelector(".forca").getContext("2d");
 let words = ["PROGRAMACAO", "CODAR", "ALURA", "ONE", "ORACLE", "JAVASCRIPT", "PALAVRA", "FORCA", "CHALLENGE", "JOGO"];
 let wordSelected  = "";
 
+let lettersErro = [];
+
 let letters = [];
 let error = 6;
+
+let winsCount = 0;
 
 //Functions
 
@@ -38,6 +42,8 @@ function erroCounter(letter){
   drawDoll();
 }
 
+
+
 function start(){
   randomWord();
   drawGame();
@@ -45,27 +51,38 @@ function start(){
   switchDiv();
   drawDoll();
 
+  let lastLetter = "";
   document.onkeydown = (e) => {
     let letter = e.key.toUpperCase();
+    if(letter != lastLetter){
     if(checkLetter(letter) && wordSelected.includes(letter)){
       for(let i = 0; i < wordSelected.length; i++){
         if(wordSelected[i] === letter){
           writeCorrectLetter(i);
+          winsCount++;
+          lastLetter = letter;
         }
       }
+      
     }else{
       erroCounter(letter);
       writeErroLetter(letter, error);
-
+    }
     if(error <= 0){
         showDefeat();
+        document.onkeydown = "";
         setTimeout(reload, 1000);
+    }else if(winsCount == wordSelected.length){
+      showWin();
+      document.onkeydown = "";
+      setTimeout(reload, 1000);
     }
-    
+  }
   }
  
-  }
+  
 }
+
 
 function addNewWords(){
     alert("Função ainda não disponivel. :(")
@@ -75,4 +92,6 @@ function switchDiv(){
     secBtn.style.display = "none";
     game.style.display = "block";
 }
+
+
 
